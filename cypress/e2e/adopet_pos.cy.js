@@ -1,12 +1,10 @@
 describe('Realizar cadastro', () => {
-  it('Deve se cadastrar usando os dados abaixo', () => {
+  beforeEach(() => {
     cy.visit('https://adopet-frontend-cypress.vercel.app/');
     cy.contains('a', 'Cadastrar').click();
-    cy.get('input[name="nome"]').type('Barea');
-    cy.get('input[name="email"]').type('barea@gmail.com');
-    cy.get('input[name="password"]').type('Senha123456');
-    cy.get('input[name="confirm_password"]').type('Senha123456');
-    cy.contains('button', 'Cadastrar').click();
+  })
+  it('Deve se cadastrar usando os dados abaixo', () => {
+    cy.cadastro('Barea', 'barea@gmail.com', 'Senha123456');
   })
 })
 
@@ -14,9 +12,7 @@ describe('Efetuar login', () => {
   it('Deve realizar login com as credenciais abaixo', () => {
     cy.visit('https://adopet-frontend-cypress.vercel.app/');
     cy.contains('a', 'Fazer login').click();
-    cy.get('input[name="email"]').type('barea@gmail.com');
-    cy.get('input[name="password"]').type('Senha123456');
-    cy.contains('button', 'Entrar').click();
+    cy.login('barea@gmail.com', 'Senha123456');
   })
 })
 
@@ -34,9 +30,7 @@ function login() {
   cy.get('img[alt="Usuário"]').click();
   cy.contains('a', 'Login').click();
 
-  cy.get('input[name="email"]').type('barea@gmail.com');
-  cy.get('input[name="password"]').type('Senha123456');
-  cy.get('button[data-test="submit-button"]').click();
+  cy.login('barea@gmail.com', 'Senha123456');
 
 }
 
