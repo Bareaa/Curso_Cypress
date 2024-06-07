@@ -11,6 +11,8 @@ Cypress.Commands.add('cadastro', (name, email, password) => {
     cy.get('input[name="confirm_password"]').type(password);
     cy.contains('button', 'Cadastrar').click();
 })
+
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

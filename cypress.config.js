@@ -6,7 +6,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    record: true,
+    record: false,
     
     // video: true,
     screenshotOnRunFailure: true,
